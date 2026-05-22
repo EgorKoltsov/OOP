@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ConstructionWorker">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/Plugins/Human/ConstructionWorker.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

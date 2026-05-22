@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ClearExecuter">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/Plugins/CommandExecuters/ClearExecuter.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

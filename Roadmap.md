@@ -1,103 +1,134 @@
-# RoadMap: Java Desktop (6 месяцев)
+# RoadMap: Java Backend Developer (июль – декабрь)
+
+## 📅 Июль — углубление Java Core
+
+### Темы
+- java.util.concurrent: Thread pools, Executors, CompletableFuture
+- Синхронизация: synchronized, Lock, ReadWriteLock, volatile, Atomic*
+- Коллекции под капотом: HashMap (конфликты, resize, Java 8+), ConcurrentHashMap
+- record, sealed classes, pattern matching (Java 17+)
+- java.nio (Buffers, Channels, Selectors) — связка с сетями
+
+### Практика (checklist)
+- [ ] Написать thread-safe кэш с TTL (in-memory)
+- [ ] Реализовать Producer–Consumer на BlockingQueue
+- [ ] Создать упрощённый аналог ConcurrentHashMap
+- [ ] Решить 10 задач на многопоточность на LeetCode (medium)
+
+### Книга
+*"Java Concurrency in Practice"* (главы 1–7)
+
+### Результат месяца
+Вы умеете писать потокобезопасный код и понимаете, как работают коллекции изнутри.
 
 ---
 
-## Месяц 1: Linux + Bash
+## 📅 Август — базы данных и JDBC / Hibernate
 
-**Недели 1-2**
-- Команды: ls, cd, grep, find, ps, top, kill, chmod
-- ssh, cron
+### Темы
+- SQL глубоко: JOIN (left/right/full/cross), оконные функции (ROW_NUMBER, RANK, LAG/LEAD), индексы (B-tree, partial, покрывающие), EXPLAIN
+- JDBC: DataSource, пул соединений (HikariCP), batch-обновления, транзакции (уровни изоляции)
+- Hibernate / JPA: маппинг (@Entity, @OneToMany, @ManyToMany), проблема N+1 (JOIN FETCH, entity graphs), кэш первого/второго уровня, миграции (Flyway/Liquibase)
 
-**Недели 3-4**
-- Bash: переменные, if, for, while, функции
-- Работа с файлами
+### Практика
+- [ ] Спроектировать БД для интернет-магазина (пользователи, товары, заказы)
+- [ ] Написать JDBC-клиент с пулом соединений
+- [ ] Перевести код на Hibernate + Spring Data JPA (задел на сентябрь)
+- [ ] Настроить миграции через Flyway
 
-**Результат:** Скрипт бэкапа логов
+### Инструменты
+PostgreSQL, DBeaver, pgAdmin, HikariCP, Flyway
 
----
-
-## Месяц 2: JavaFX
-
-**Недели 1-2**
-- Stage, Scene, FXML
-- CSS стили
-
-**Недели 3-4**
-- Properties (StringProperty)
-- Bindings
-- TableView, ListView
-
-**Результат:** Текстовый редактор или файловый менеджер
+### Результат месяца
+Вы уверенно работаете с SQL, JDBC и основами JPA/Hibernate.
 
 ---
 
-## Месяц 3: Потоки + LeetCode
+## 📅 Сентябрь — Spring Framework (основа)
 
-**Недели 1-2**
-- Platform.runLater
-- Task и Service из JavaFX
+### Темы
+- IoC/DI: контекст, бины, scope (@Primary, @Qualifier)
+- Spring Boot: автоконфигурация, properties/profiles, actuators
+- Spring Web: @RestController, @RequestMapping, @RequestParam, @PathVariable, перехватчики, глобальная обработка ошибок (@ControllerAdvice)
+- Spring Data JPA: репозитории, query methods, @Query, проекции
+- Spring AOP: логирование, метрики
 
-**Недели 3-4**
-- ProgressIndicator
-- Долгие операции без зависания UI
+### Практика — старт проекта "Url Shortener"
+- [ ] REST API для создания коротких ссылок
+- [ ] Редирект (301/302) по короткому коду
+- [ ] Статистика переходов (счётчик + дата)
+- [ ] Хранение в PostgreSQL через Spring Data JPA
+- [ ] Логирование через AOP (время выполнения методов)
 
-**LeetCode:** 2-3 задачи в неделю (поддержка формы)
-
-**Результат:** Программа с фоновой загрузкой файлов
-
----
-
-## Месяц 4: Базы данных
-
-**Недели 1-2**
-- SQLite (локальная БД)
-- JOIN, GROUP BY
-
-**Недели 3-4**
-- JDBC в десктопе
-- TableView ←→ ResultSet
-
-**Результат:** Менеджер контактов на SQLite
+### Результат месяца
+Вы написали первый полноценный Spring Boot проект с БД и REST API.
 
 ---
 
-## Месяц 5: Продвинутый десктоп
+## 📅 Октябрь — REST, тестирование, безопасность
 
-**Недели 1-2**
-- Canvas (рисование)
-- Анимации
+### Темы
+- REST maturity level (модель Ричардсона)
+- DTO и маппинг (MapStruct / ModelMapper)
+- Тестирование:
+  - JUnit 5 + AssertJ
+  - Mockito (@MockBean)
+  - @WebMvcTest, @DataJpaTest, @SpringBootTest
+  - Testcontainers (PostgreSQL/Redis)
+- Spring Security: JWT-аутентификация, UserDetailsService, SecurityFilterChain, роли (@PreAuthorize)
+- OpenAPI / Swagger: автоматическая документация
 
-**Недели 3-4**
-- FileChooser
-- Drag & Drop
-- Сборка .exe через jpackage
+### Доработка проекта Url Shortener
+- [ ] Добавить регистрацию и логин (JWT)
+- [ ] Написать интеграционные тесты на контроллеры
+- [ ] Покрыть репозитории и сервисы юнит-тестами
+- [ ] Создать DTO + мапперы
+- [ ] Подключить валидацию (@Valid, кастомный валидатор)
 
-**Результат:** XML/JSON редактор или простой графический редактор
-
----
-
-## Месяц 6: Финальный проект
-
-Выбери одно:
-
-- Текстовый редактор с подсветкой синтаксиса
-
-**Что добавить:**
-- Многопоточка
-- База данных
-- Экспорт в PDF/CSV
-
-**Результат:** Готовый проект на GitHub
+### Результат месяца
+Ваш проект покрыт тестами, защищён JWT и документирован через Swagger.
 
 ---
 
-## Чек-лист (6 шагов)
+## 📅 Ноябрь — микросервисная грамотность и инфраструктура
 
-- [ ] Месяц 1: Bash скрипт
-- [ ] Месяц 2: Программа на JavaFX
-- [ ] Месяц 3: UI с фоновыми задачами
-- [ ] Месяц 4: Десктоп + SQLite
-- [ ] Месяц 5: Сборка в .exe
-- [ ] Месяц 6: Полный проект в портфолио
+### Темы
+- Docker: Dockerfile для Spring Boot, docker-compose (app + postgres + redis)
+- Брокеры сообщений: RabbitMQ / Kafka (базовые producer/consumer, гарантии доставки)
+- Микросервисы (ознакомительно):
+  - FeignClient / WebClient
+  - Circuit Breaker (Resilience4j)
+- Kubernetes (основы): Pod, Service, Deployment, ConfigMap
+- ### Новый проект — "Notification Service" (в паре с Url Shortener)
+- [ ] Создать два сервиса:
+  - url-shortener (существующий)
+  - notification-service (логирует события в БД или файл)
+- [ ] Настроить общение через Kafka (создание ссылки → event → уведомление)
+- [ ] Поднять оба сервиса через docker-compose
+- [ ] Написать Dockerfile для каждого сервиса
+
+### Результат месяца
+Вы умеете контейнеризировать приложения, поднимать их в compose и асинхронно обмениваться событиями.
 
 ---
+
+## 📅 Декабрь — сборка, алгоритмы, портфолио
+
+### Темы
+- CI/CD: GitHub Actions / GitLab CI (сборка, тесты, публикация Docker-образа)
+- Мониторинг: структурированное логирование (JSON), метрики (Micrometer + Prometheus)
+- Алгоритмы для собеседований (backend):
+  - reverse linked list, two pointers, sliding window
+  - BFS/DFS (на примере графов)
+  - поиск подстроки, LRU cache (уже делали в июле)
+- Паттерны GoF в Spring: Template Method, Proxy, Factory, Observer
+
+### Финальная доводка
+- [ ] Задеплоить Url Shortener в облако (render.com / DigitalOcean + Docker)
+- [ ] Настроить CI: при пуше → тесты → сборка → публикация образа
+- [ ] Написать качественное README для каждого проекта (схема БД, docker-compose, примеры запросов)
+- [ ] Решить 20 задач на LeetCode (easy/medium) — backend-ориентированные
+
+### Резюме
+Составить резюме с акцентами:  
+Java 17+ • Multithreading • PostgreSQL • Spring Boot • Docker • Kafka (ознакомительно)
